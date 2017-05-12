@@ -29,7 +29,7 @@ class Stack
   end
 
   def empty?
-    (@store - [nil]).length == 0
+    (@store - [nil]).length == EMPTY_STACK_SIZE
   end
 
   def top
@@ -43,7 +43,7 @@ class Stack
   end
 
   def top_index_plus_plus!
-    @top_index +=1
+    @top_index += 1
   end
 
   def top_index_minus_minus!
