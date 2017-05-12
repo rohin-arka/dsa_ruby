@@ -12,7 +12,6 @@ class Stack
   end
 
   def pop
-    return nil if empty? # Precondition stack should not be empty
     last_element = @store[@top_index]
     @store[@top_index] = nil
     top_index_minus_minus!
@@ -35,7 +34,7 @@ class Stack
   end
 
   def top
-    @store.last
+    (@store - [nil]).last
   end
 
   private
@@ -62,7 +61,7 @@ stack.push(2)
 stack.push(3)
  # => nil
 stack.pop
- # => [1, nil]
+ # => 1
 stack.size
  # => 2
 stack.empty?
