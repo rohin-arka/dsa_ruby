@@ -5,8 +5,6 @@ class Stack
 
   private_constant :EMPTY_STACK_SIZE
 
-  attr_reader :size
-
   def initialize(stack_size = EMPTY_STACK_SIZE)
     @size = stack_size
     @store = Array.new(stack_size)
@@ -19,6 +17,10 @@ class Stack
     @store[@top_index] = nil
     top_index_minus_minus!
     last_element
+  end
+
+  def size
+    @store.size
   end
 
   def push(element)
@@ -39,7 +41,8 @@ class Stack
   private
 
   def full?
-    @top_index == @size - 1
+    check_size = @top_index == size - 1
+    @size == 0 ? false : check_size
   end
 
   def top_index_plus_plus!
